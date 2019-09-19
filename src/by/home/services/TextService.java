@@ -27,12 +27,12 @@ public class TextService {
  */
 // 1)
 public static ArrayList<String> first(ArrayList<String> text) {
-    ArrayList<String> list1 = new ArrayList<String>();
+    ArrayList<String> newText = new ArrayList<String>();
     for(int i=0;i<text.size();i++){
-        String s = text.get(i).replaceAll("\\s+", " ");
-        list1.add(i,s);
+        String deleteSpace = text.get(i).replaceAll("\\s+", " ");
+        newText.add(i,deleteSpace);
     }
-    return list1;
+    return newText;
 }
 
 /**
