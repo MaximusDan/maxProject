@@ -10,16 +10,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<String> text1 = FileService.loadFile("D:/file.txt");
-        //for(int i=0;i<text1.size();i++){
-            //System.out.println(text1.get(i));
-        //}
+        ArrayList<String> oldText = FileService.loadFile("D:/file.txt");
 
-        //System.out.println("----------------------------------------");
-        ArrayList<String> text2 = TextService.first(text1);
+        ArrayList<String> newTextShow = TextService.first(oldText);
 
-        for(int i=0;i<text1.size();i++){
-            System.out.println(text2.get(i));
+        for(int i=0;i<oldText.size();i++){
+            System.out.println(newTextShow.get(i));
         }
 
 
