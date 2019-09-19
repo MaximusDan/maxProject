@@ -2,6 +2,11 @@ package by.home.services;
 
 import java.util.ArrayList;
 
+/**
+ * В данном классе находятся методы для работы с текстом.
+ *
+ * todo: по окончанию разработки перечислить тут все методы с кратким описанием
+ */
 public class TextService {
 
     /**
