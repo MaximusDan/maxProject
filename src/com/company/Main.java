@@ -59,7 +59,7 @@ public class Main {
         природа - 1
         и тд.*/
         String s = "дом,шкаф,природа,огонь,шкаф,солнце,дом,утюг,шкаф";
-int b=0;
+//int b=0,c=0;
         String[] mas = s.split(","); //разбил строку на слова
 
         ArrayList<String> list = new ArrayList<String>();
@@ -68,44 +68,41 @@ int b=0;
         list.add(mas[0]);
         list3.add(1);
 
-        for (int i = 1; i < mas.length; i++) {       //заполнил коллекцию неповторяющимися словами
+        for (int i = 1; i < mas.length; i++) {//заполнил коллекцию неповторяющимися словами
+            int b=0,c=0;
             if (list.contains(mas[i])) {
-                b = list.indexOf("дом");
-
+                b = list.indexOf(mas[i]);
+                c = list3.get(b);
+                c = c +1;
+                list3.remove(b);
+                list3.add(b, c);
             }else{
+                list.add(mas[i]);
                 list3.add(1);
             }
         }
-        for (int i = 0; i < list.size(); i++) {
-                list3.add(i, 1);   //создаю элемент числовой коллекции
-                for (int j = 1; j < mas.length; j++) {
-                    if (list.get(i) == mas[j]) {       //проверяю есть ли в коллекции слов повторяющиеся слова с массивом
-                        b = list3.get(i);
-                        b = b + 1;
-                        list3.remove(i);
-                        list3.add(i, b);
-                    }
+
+        for(int i = 0; i < list3.size()-1; i++){
+            int b=0,c=0,index;
+
+            String d;
+            for(int j = 1; j < list3.size(); j++){
+                if(list3.get(j)>list3.get(i)){
+                    b = list3.get(i);
+                    c = list3.get(j);
+                    list3.remove(i);
+                    list3.remove(j);
+                    list3.add(i,c);
+                    list3.add(j,b);
+
                 }
-                b = 0;
+                break;
+            }
         }
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i) + " - " + list3.get(i));
         }
-
-        /*for (int i = 1; i < mas.length; i++) {
-            for (int j = 1; j < mas.length; j++) {
-
-            }
-            }
-
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list3.size(); j++) {
-                if (list.get(i) ==)
-            }
-        }*/
-
-
     }
 }
 

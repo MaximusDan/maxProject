@@ -1,11 +1,2 @@
-.gradle
-.idea
-
-target
-build
-out
-
-*.ipr
-*.iws
-*.iml
-*.ids
+# Project exclude paths
+/out/
