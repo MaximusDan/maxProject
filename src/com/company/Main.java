@@ -10,15 +10,20 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<String> oldText = FileService.loadFile("D:/file.txt");
+       //1)Заменяет множественные пробелы на один.
+        ArrayList<String> oldText = FileService.loadFile("D:/file.txt"); //Вызываю метод loadFile
 
-        ArrayList<String> newTextShow = TextService.first(oldText);
-
-        for(int i=0;i<oldText.size();i++){
+        /*ArrayList<String> newTextShow = TextService.firstMethod(oldText); //Вызываю метод firstMethod
+        for(int i=0;i<newTextShow.size();i++){
             System.out.println(newTextShow.get(i));
         }
+        FileService.saveFile(newTextShow,"D:/file.txt"); //Вызываю метод saveFile
+*/
 
-
+        ArrayList<String> replacementText = TextService.secondMethod(oldText);
+        for(int i=0;i<replacementText.size();i++){
+            System.out.println(replacementText.get(i));
+        }
     }
 }
 
