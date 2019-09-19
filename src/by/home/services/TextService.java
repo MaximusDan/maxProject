@@ -26,7 +26,7 @@ public class TextService {
  * @return результирующая коллекция
  */
 // 1)
-public static ArrayList<String> first(ArrayList<String> text) {
+public static ArrayList<String> firstMethod(ArrayList<String> text) {
     ArrayList<String> newText = new ArrayList<String>();
     for(int i=0;i<text.size();i++){
         String deleteSpace = text.get(i).replaceAll("\\s+", " ");
@@ -43,7 +43,23 @@ public static ArrayList<String> first(ArrayList<String> text) {
  * @return результирующая коллекция
  */
 // 2)
+public static ArrayList<String> secondMethod(ArrayList<String> text) {
+    String word = "не,степени,рядом,французский,матчей";
+    ArrayList<String> words = new ArrayList<String>();
+    ArrayList<String> words1 = new ArrayList<String>();
+    String[] mas = word.split(",");
+    for (int i = 0; i < mas.length; i++) {
+        words.add(mas[i]);
+    }
+    for (int i = 0; i < text.size(); i++) {
+        words1.add(i,text.get(i));
+        for (int j = 0; j < words.size(); j++) {
+            words1.add(i, text.get(i).replace(words.get(j), "***"));
+        }
+    }
 
+    return words1 ;
+}
 /**
  * В метод передаётся коллекция с текстом и слово, которое нужно искать в тексте.
  *
