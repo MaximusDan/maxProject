@@ -6,6 +6,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * В данном классе находятся методы для работы с фалами.
+ *
+ * loadFile - прочитать файл
+ * saveFile - перезаписать файл
+ * updateFile - добавить в файл данные
+ */
 public class FileService {
 
     /**
