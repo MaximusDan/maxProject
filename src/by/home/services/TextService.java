@@ -25,12 +25,15 @@ public class TextService {
  * @param text коллекция, содержащая строки с текстом
  * @return результирующая коллекция
  */
-// 1)ArrayList<String> text = new ArrayList<String>();
-//        text.add("  Один    хабиб и ты    погиб");
-//        String newText = text.get(0).replaceAll("\\s+", " ");
-//        text.remove(0);
-//        text.add(newText);
-//        System.out.println(text.get(0));
+// 1)
+public static ArrayList<String> first(ArrayList<String> text) {
+    ArrayList<String> list1 = new ArrayList<String>();
+    for(int i=0;i<text.size();i++){
+        String s = text.get(i).replaceAll("\\s+", " ");
+        list1.add(i,s);
+    }
+    return list1;
+}
 
 /**
  * Заменяет слова в коллекции text на звёздочки. Список слов, которые нужно заменить приходят во второй коллекции.
