@@ -18,12 +18,20 @@ public class Main {
             System.out.println(newTextShow.get(i));
         }
         FileService.saveFile(newTextShow,"D:/file.txt"); //Вызываю метод saveFile
-*/
 
-        ArrayList<String> replacementText = TextService.secondMethod(oldText);
+*/      /*2) Заменяет слова в коллекции text на звёздочки. Список слов, которые нужно заменить приходят во второй коллекции.
+        ArrayList<String> word = FileService.loadFile("D:/word.txt"); //Вызываю метод loadFile
+        ArrayList<String> replacementText = TextService.secondMethod(oldText,word);
         for(int i=0;i<replacementText.size();i++){
             System.out.println(replacementText.get(i));
         }
+        FileService.saveFile(replacementText,"D:/word.txt");*/
+
+        //3)В метод передаётся коллекция с текстом и слово, которое нужно искать в тексте.
+
+        String words = "тура";
+        int finishSumm = TextService.thirdMethod(oldText,words);
+        System.out.println(finishSumm);
     }
 }
 
