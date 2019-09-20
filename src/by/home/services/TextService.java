@@ -43,22 +43,24 @@ public static ArrayList<String> firstMethod(ArrayList<String> text) {
  * @return результирующая коллекция
  */
 // 2)
-public static ArrayList<String> secondMethod(ArrayList<String> text) {
-    String word = "не,степени,рядом,французский,матчей";
-    ArrayList<String> words = new ArrayList<String>();
-    ArrayList<String> words1 = new ArrayList<String>();
-    String[] mas = word.split(",");
+public static ArrayList<String> secondMethod(ArrayList<String> text, ArrayList<String> words) {
+
+    ArrayList<String> newWords = new ArrayList<String>();
+    String[] mas = words.get(0).split(",");
     for (int i = 0; i < mas.length; i++) {
-        words.add(mas[i]);
-    }
-    for (int i = 0; i < text.size(); i++) {
-        words1.add(i,text.get(i));
-        for (int j = 0; j < words.size(); j++) {
-            words1.add(i, text.get(i).replace(words.get(j), "***"));
-        }
+        newWords.add(mas[i]);
     }
 
-    return words1 ;
+    for (int i = 0; i < text.size(); i++) {
+        for (int j = 0; j < newWords.size(); j++) {
+            if (text.get(i).contains(newWords.get(j))) {
+                String newWord = text.get(i).replaceAll(newWords.get(j), "***");
+                text.remove(i);
+                text.add(i, newWord);
+            }
+        }
+    }
+    return text;
 }
 /**
  * В метод передаётся коллекция с текстом и слово, которое нужно искать в тексте.
@@ -66,7 +68,25 @@ public static ArrayList<String> secondMethod(ArrayList<String> text) {
  * @return количество найденных слов.
  */
 // 3)
-
+public static int thirdMethod(ArrayList<String> text, String word) {
+    //System.out.println(word);
+    int summ = 0;
+    ArrayList<String> wordCollection = new ArrayList<String>();
+    for (int i = 0; i < text.size(); i++) {
+        String[] mas = text.get(i).split(" ");
+        for (int j = 0; j < mas.length; j++) {
+            wordCollection.add(mas[j]);
+        }
+    }
+    for (int i = 0; i < wordCollection.size(); i++) {
+        if (wordCollection.get(i).contains(word)) {
+            summ++;
+        }
+    }
+    //System.out.println(text.size());
+    //System.out.println(summ);
+    return summ;
+}
 /**
  * Разбивает текст на отдельные слова. Знаки препинания и пробелы удаляются.
  *
