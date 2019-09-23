@@ -25,7 +25,6 @@ public class TextService {
  * @param text коллекция, содержащая строки с текстом
  * @return результирующая коллекция
  */
-// 1)
 public static ArrayList<String> firstMethod(ArrayList<String> text) {
     ArrayList<String> newText = new ArrayList<String>();
     for(int i=0;i<text.size();i++){
@@ -42,7 +41,6 @@ public static ArrayList<String> firstMethod(ArrayList<String> text) {
  * @param words коллекция, содержащая список слов, которые нужно заменить в коллекции text
  * @return результирующая коллекция
  */
-// 2)
 public static ArrayList<String> secondMethod(ArrayList<String> text, ArrayList<String> words) {
 
     ArrayList<String> newWords = new ArrayList<String>();
@@ -67,7 +65,6 @@ public static ArrayList<String> secondMethod(ArrayList<String> text, ArrayList<S
  *
  * @return количество найденных слов.
  */
-// 3)
 public static int thirdMethod(ArrayList<String> text, String word) {
     //System.out.println(word);
     int summ = 0;
@@ -102,4 +99,9 @@ public static int thirdMethod(ArrayList<String> text, String word) {
  * @return коллекция предложений в которой каждый элемент равен 1 предложению
  */
 // 5)
+
+    /**
+     * Получает на вход строку и возвращает её в транслите. т.е. русские буквы меняем на англ при помощи оператора switch.
+     */
+// 6)
 }
