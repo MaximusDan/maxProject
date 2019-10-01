@@ -77,4 +77,12 @@ public class FileService {
      * Тут нужно написать метод, который принимает коллекцию строк с текстом и возвращает текст в виде одной строки.
      * Т.е. берём все строки из коллекции, объединяем и делаем из них одну строку. Эту строку и возвращаем из метода.
      */
+
+    public static String returnFullText(ArrayList<String> text) {
+        String returnText = text.get(0);
+        for (int i = 0; i < text.size(); i++) {
+            returnText = returnText + " " + text.get(i);
+        }
+        return returnText;
+    }
 }
