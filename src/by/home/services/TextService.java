@@ -61,7 +61,8 @@ public class TextService {
         return text;
     }
 
-    /**3)
+    /**
+     * 3)
      * В метод передаётся коллекция с текстом и слово, которое нужно искать в тексте.
      *
      * @return количество найденных слов.
@@ -110,13 +111,17 @@ public class TextService {
      */
 // 5)
     public static ArrayList<String> returnStringCollection(ArrayList<String> text) {
+
         ArrayList<String> stringText = new ArrayList<String>();
-
-        String fullText = FileService.returnFullText(text);
-
-        String[] mas = fullText.split("\\.");
-        for (int i = 0; i < mas.length; i++) {
-            stringText.add(mas[i]);
+        String lostText = "";
+        for (int i = 0; i < text.size(); i++) {
+            String st = text.get(i);
+            st = lostText + text.get(i);
+            while (st.indexOf(".") != -1) {
+                stringText.add(st.substring(0, st.indexOf(".") + 1));
+                st = st.substring(st.indexOf(".") + 1);
+            }
+            lostText = st;
         }
         return stringText;
     }
@@ -125,96 +130,91 @@ public class TextService {
      * Получает на вход строку и возвращает её в транслите. т.е. русские буквы меняем на англ при помощи оператора switch.
      */
 // 6)
-    public static String translateText(String text) {
+    /*public static String translateText(String text) {
         char[] textSymbol = text.toCharArray();
-        ArrayList<String> stringText = new ArrayList<String>();
+        String newText = "";
         for (int i = 0; i < textSymbol.length; i++) {
             switch (textSymbol[i]) {
                 case 'a':
-                    stringText.add("a");
+                    newText = newText + " " + "a";
                     break;
                 case 'b':
-                    stringText.add("и");
+                    newText = newText + " " + "и";
                     break;
                 case 'c':
-                    stringText.add("с");
+                    newText = newText + " " + "с";
                     break;
                 case 'd':
-                    stringText.add("в");
+                    newText = newText + " " + "в";
                     break;
                 case 'e':
-                    stringText.add("а");
+                    newText = newText + " " + "а";
                     break;
                 case 'f':
-                    stringText.add("п");
+                    newText = newText + " " + "п";
                     break;
                 case 'g':
-                    stringText.add("р");
+                    newText = newText + " " + "р";
                     break;
                 case 'h':
-                    stringText.add("ш");
+                    newText = newText + " " + "ш";
                     break;
                 case 'i':
-                    stringText.add("о");
+                    newText = newText + " " + "о";
                     break;
                 case 'j':
-                    stringText.add("л");
+                    newText = newText + " " + "л";
                     break;
                 case 'k':
-                    stringText.add("д");
+                    newText = newText + " " + "д";
                     break;
                 case 'l':
-                    stringText.add("ь");
+                    newText = newText + " " + "ь";
                     break;
                 case 'm':
-                    stringText.add("т");
+                    newText = newText + " " + "т";
                     break;
                 case 'n':
-                    stringText.add("щ");
+                    newText = newText + " " + "щ";
                     break;
                 case 'o':
-                    stringText.add("з");
+                    newText = newText + " " + "з";
                     break;
                 case 'p':
-                    stringText.add("й");
+                    newText = newText + " " + "й";
                     break;
                 case 'q':
-                    stringText.add("к");
+                    newText = newText + " " + "к";
                     break;
                 case 'r':
-                    stringText.add("ы");
+                    newText = newText + " " + "ы";
                     break;
                 case 's':
-                    stringText.add("е");
+                    newText = newText + " " + "е";
                     break;
                 case 't':
-                    stringText.add("г");
+                    newText = newText + " " + "г";
                     break;
                 case 'u':
-                    stringText.add("м");
+                    newText = newText + " " + "м";
                     break;
                 case 'v':
-                    stringText.add("ц");
+                    newText = newText + " " + "ц";
                     break;
                 case 'w':
-                    stringText.add("ч");
+                    newText = newText + " " + "ч";
                     break;
                 case 'x':
-                    stringText.add("н");
+                    newText = newText + " " + "н";
                     break;
                 case 'y':
-                    stringText.add("я");
+                    newText = newText + " " + "я";
                     break;
                 case 'z':
-                    stringText.add("я");
+                    newText = newText + " " + "я";
                     break;
             }
         }
-        String newText = stringText.get(0);
-
-        for (int i = 1; i < stringText.size(); i++) {
-            newText = newText + stringText.get(i);
-        }
         return newText;
-    }
+    }*/
 }
