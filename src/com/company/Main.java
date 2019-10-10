@@ -1,6 +1,7 @@
 package com.company;
 
 import by.home.services.FileService;
+import by.home.services.Login;
 import by.home.services.TextService;
 
 import java.sql.SQLOutput;
@@ -12,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         //1)Заменяет множественные пробелы на один.
-        ArrayList<String> oldText = FileService.loadFile("D:/file.txt");
+        //ArrayList<String> oldText = FileService.loadFile("D:/file.txt");
 
         /*ArrayList<String> newTextShow = TextService.replaceSpace(oldText);
         for(int i=0;i<newTextShow.size();i++){
@@ -41,15 +42,34 @@ public class Main {
         // }
 
         //5)Разбивает текст на отдельные предложения. (В изначальной коллекции предложения могут быть перенесены в след элементы).
-        ArrayList<String> newStringCollection = TextService.returnStringCollection(oldText);
-        for(int i=0;i<newStringCollection.size();i++){
-             System.out.println(newStringCollection.get(i));
-         }
+        //ArrayList<String> newStringCollection = TextService.returnStringCollection(oldText);
+       // for(int i=0;i<newStringCollection.size();i++){
+          //  System.out.println(newStringCollection.get(i));
+         //}
 
         //6)Получает на вход строку и возвращает её в транслите. т.е. русские буквы меняем на англ при помощи оператора switch.
         //String translateText = TextService.translateText("fqrrrrrrrrrer     ttt");
-       // System.out.println(translateText);
-
+       //System.out.println(translateText);
+        boolean login = true;
+        while (login) {
+            System.out.println("Введите логин");
+            Scanner sc = new Scanner(System.in);
+            String str = "";
+            if (sc.hasNextLine()) {
+                str = sc.nextLine();
+            }
+            boolean rezultLogin = Login.checkLogin(str);
+            if(rezultLogin = true){
+                System.out.println("Введите логин еще раз");
+                System.out.println("В логине должна быть хотя бы одна заглавная буква");
+                System.out.println("В логине должна быть хотя бы одна цифра");
+                System.out.println("Логин должен состоять минимум из 6 символов максимум 16");
+                System.out.println("В логине могут быть только буквы, цифры, знак нижнего подчёркивания, тире");
+            }else{
+                login = false;
+            }
+        }
+        System.out.println("Введенный логин заебись");
     }
 }
 
