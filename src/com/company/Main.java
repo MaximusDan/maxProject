@@ -50,8 +50,8 @@ public class Main {
         //6)Получает на вход строку и возвращает её в транслите. т.е. русские буквы меняем на англ при помощи оператора switch.
         //String translateText = TextService.translateText("fqrrrrrrrrrer     ttt");
        //System.out.println(translateText);
-        boolean login = true;
-        while (login) {
+
+        while (true) {
             System.out.println("Введите логин");
             Scanner sc = new Scanner(System.in);
             String str = "";
@@ -59,14 +59,14 @@ public class Main {
                 str = sc.nextLine();
             }
             boolean rezultLogin = Login.checkLogin(str);
-            if(rezultLogin = true){
+            if (rezultLogin == false) {
                 System.out.println("Введите логин еще раз");
                 System.out.println("В логине должна быть хотя бы одна заглавная буква");
                 System.out.println("В логине должна быть хотя бы одна цифра");
                 System.out.println("Логин должен состоять минимум из 6 символов максимум 16");
                 System.out.println("В логине могут быть только буквы, цифры, знак нижнего подчёркивания, тире");
             }else{
-                login = false;
+                break;
             }
         }
         System.out.println("Введенный логин заебись");
